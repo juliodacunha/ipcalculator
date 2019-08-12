@@ -1,0 +1,60 @@
+.centro{
+	float:left;
+	margin-top: 2%;
+	width: 100%;
+	text-align:center
+}
+
+@font-face{
+	font-family: "CustomFont";
+	src: url("fonte/Quicksand_Book_Oblique.otf");
+	src: url("fonte/Quicksand_Light_Oblique.otf") format("woff"),
+	url("fonte/Quicksand_Book_Oblique.otf") format("opentype"),
+	url("fonte/Quicksand_Light_Oblique.otf") format("svg");
+}
+
+h3 {
+
+margin-top: 3%;
+font-family: 'CustomFont';
+font-weight:normal;
+font-style:normal;
+text-align: center;
+font-size: 60px;
+}
+
+input[type=text] {
+
+  width: 14%;
+  height: 26px	;
+  margin: 9px 0;
+  box-sizing: border-box;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 3px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align:center
+}
+
+.fonte{
+	font-size: 20px;
+}
+
+.fonteresultado{
+	line-height: 0.3;
+	font-size: 20px	;
+}
+body{
+	background-color: #f9ecec;
+}
+
+.resultado{
+	margin-top: 14%;
+	text-align: center;
+}
