@@ -25,10 +25,11 @@ font-size: 60px;
 
 input[type=text] {
 
-  width: 14%;
+  width: 6%;
   height: 26px	;
   margin: 9px 0;
   box-sizing: border-box;
+  border-radius: 3px;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
