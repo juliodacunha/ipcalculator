@@ -52,10 +52,12 @@ input[type=button], input[type=submit], input[type=reset] {
 	font-size: 20px	;
 }
 body{
-	background-color: #f9ecec;
+	background-color: #D8D8D8;
 }
 
 .resultado{
 	margin-top: 14%;
 	text-align: center;
 }
+
+
