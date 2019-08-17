@@ -76,6 +76,82 @@ function priHost ($mascara){
 
 }
 //echo priHost('/30');
+function ultimoEndHostSubRede($ip1, $ip2, $ip3, $ip4, $mascara){
 
+    if($mascara=='/24'){
+        return $ip1.".".$ip2.".".$ip3.".255";
+    }elseif ($mascara=='/25'){
+        return $ip1.".".$ip2.".".$ip3.".127";
+    }elseif ($mascara=='/26'){
+        return $ip1.".".$ip2.".".$ip3.".63";
+    }elseif ($mascara=='/27'){
+        return $ip1.".".$ip2.".".$ip3.".31";
+    }elseif ($mascara=='/28'){
+        return $ip1.".".$ip2.".".$ip3.".15";
+    }elseif ($mascara=='/29'){
+        return $ip1.".".$ip2.".".$ip3.".7";
+    }elseif ($mascara=='/30'){
+        return $ip1.".".$ip2.".".$ip3.".3";
+    }elseif ($mascara=='/31'){
+        return $ip1.".".$ip2.".".$ip3.".1";
+    }elseif ($mascara=='/32'){
+        return $ip1.".".$ip2.".".$ip3.".0";
+    }else{
+        return "Não identificado";
+    }
+}
+
+function mascaraRede($mascara){
+    if($mascara=='/24'){
+        return "255.255.255.0";
+    }elseif ($mascara=='/25'){
+        return "255.255.255.128";
+    }elseif ($mascara=='/26'){
+        return "255.255.255.192";
+    }elseif ($mascara=='/27'){
+        return "255.255.255.224";
+    }elseif ($mascara=='/28'){
+        return "255.255.255.240";
+    }elseif ($mascara=='/29'){
+        return "255.255.255.248";
+    }elseif ($mascara=='/30'){
+        return "255.255.255.252";
+    }elseif ($mascara=='/31'){
+        return "255.255.255.254";
+    }elseif ($mascara=='/32'){
+        return "255.255.255.255";
+    }else{
+        return "Não identificado";
+    }
+}
+
+function classeIp ($ip1){
+    if ($ip1<=127){
+        return "Classe A";
+    }elseif ($ip1>127 and $ip1<=191){
+        return "Classe B";
+    }elseif($ip1>191 and $ip1<224){
+        return "Classe C";
+    }elseif ($ip1>223 and $ip1<240){
+        return "Classe D";
+    }elseif ($ip1>239 and $ip1<256){
+        return "Classe E";
+    }else{
+        return "Não identificado";
+    }
+}
+
+function publicoprivado($ip1, $ip2, $ip3, $ip4){
+
+    if ($ip1==10 and $ip2<256 and $ip3<256 and $ip4<256){
+        return "Privado";
+    }elseif ($ip1==172 and $ip2>15 and $ip2<32 and $ip3<256 and $ip4<256){
+        return "Privado";
+    }elseif ($ip1==192 and $ip2==168 and $ip3<256 and $ip4<256){
+        return "Privado";
+    }else{
+        Return "Público";
+    }
+}
 
 ?>

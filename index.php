@@ -17,15 +17,15 @@ require ('logica.php');
  <form class="centro" action="index.php" method="post">
   IP:	
   <div class="ui input" style="width: 28%;">
-  <input type="text" name="ip1" placeholder="0000"  maxlength="4" style="margin: 4px;" >.
-  <input type="text" name="ip2" placeholder="0000"  maxlength="4" style="margin: 4px;">.
-  <input type="text" name="ip3" placeholder="0000"  maxlength="4" style="margin: 4px;">.
-  <input type="text" name="ip4" placeholder="0000"  maxlength="4" style="margin: 4px;">
+  <input type="text" name="ip1" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;" >.
+  <input type="text" name="ip2" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;">.
+  <input type="text" name="ip3" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;">.
+  <input type="text" name="ip4" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;">
 </div>
  
   Máscara:
   <div class="ui action input">
-  <select class="ui compact selection dropdown" style="font-size: 15px; border-radius: 5px;" name="mascara">
+  <select class="ui compact selection dropdown" style="font-size: 12px; border-radius: 5px;" name="mascara">
       <option value="/24">/24</option>
       <option value="/25">/25</option>
       <option value="/26">/26</option>
@@ -67,19 +67,19 @@ require ('logica.php');
     </tr>
      <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Último endereço de host de cada sub-rede:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;">fazer função</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo ultimoEndHostSubRede($ip1, $ip2, $ip3, $ip, $mascara); ?></td>
     </tr>
      <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Máscara da rede, em formato decimal:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;">fazer função</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo mascaraRede($mascara); ?></td>
     </tr>
      <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Classe do IP:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;">fazer função</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo classeIp($ip1); ?></td>
     </tr>
      <tr>
-      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 16sPX;">o IP é:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;">fazer função</td>
+      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20px;">O IP é:</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo publicoprivado($ip1, $ip2, $ip3, $ip4); ?></td>
     </tr>
   </tbody>
 </table>
