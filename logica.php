@@ -6,27 +6,18 @@ $ip3 = $_POST['ip3'];
 $ip4 = $_POST['ip4'];
 $mascara = $_POST['mascara'];
 
-function subredes($mascara){
 
-    if ($mascara == '/24') {
-        echo '1';
-    }elseif ($mascara =='/25') {
-        echo '2';
-    }elseif ($mascara == '/26') {
-        echo '4';
-    }elseif ($mascara  == '/27') {
-        echo '8';
-    }elseif ($mascara =='/28') {
-        echo '16';
-    }elseif ($mascara == '/29') {
-        echo '32';
-    }elseif ($mascara  == '/30') {
-        echo '64';
-    }elseif ($mascara  == '/31') {
-        echo '128';
-    }elseif ($mascara  == '/32') {
-        echo '256';
-    }
+function subredes($mascara){
+    $a = -1;
+    for ($i='/24'; $i <= $mascara ; $i++) { 
+         if($a <= 7) {
+            $a++;
+            if ($mascara >= $i){
+                $resultado = pow(2,$a);
+            }
+        }
+     }
+     return $resultado;
 }
 //teste function
 //echo subredes('/25');
@@ -75,31 +66,7 @@ function priHost ($mascara){
     }
 
 }
-//echo priHost('/30');
-function ultimoEndHostSubRede($ip1, $ip2, $ip3, $ip4, $mascara){
 
-    if($mascara=='/24'){
-        return $ip1.".".$ip2.".".$ip3.".255";
-    }elseif ($mascara=='/25'){
-        return $ip1.".".$ip2.".".$ip3.".127";
-    }elseif ($mascara=='/26'){
-        return $ip1.".".$ip2.".".$ip3.".63";
-    }elseif ($mascara=='/27'){
-        return $ip1.".".$ip2.".".$ip3.".31";
-    }elseif ($mascara=='/28'){
-        return $ip1.".".$ip2.".".$ip3.".15";
-    }elseif ($mascara=='/29'){
-        return $ip1.".".$ip2.".".$ip3.".7";
-    }elseif ($mascara=='/30'){
-        return $ip1.".".$ip2.".".$ip3.".3";
-    }elseif ($mascara=='/31'){
-        return $ip1.".".$ip2.".".$ip3.".1";
-    }elseif ($mascara=='/32'){
-        return $ip1.".".$ip2.".".$ip3.".0";
-    }else{
-        return "Não identificado";
-    }
-}
 
 function mascaraRede($mascara){
     if($mascara=='/24'){
@@ -152,6 +119,10 @@ function publicoprivado($ip1, $ip2, $ip3, $ip4){
     }else{
         Return "Público";
     }
+}
+
+function enrecorede($ip1, $ip2, $ip3, $ip4, $mascara){
+
 }
 
 ?>
