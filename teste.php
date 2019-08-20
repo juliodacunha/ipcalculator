@@ -1,19 +1,7 @@
 <?php
-$mascara = 26;
-$a = -1;
+//Endereços de rede e Broadcast de uma das cada sub-rede:	
 
+$eae = 'eu sou programador';
+echo substr($eae, 4, 7);
 
-for ($i=24; $i <= $mascara ; $i++) { 
-     if($a <= 7) {
-        $a++;
-        if ($mascara >= $i){
-            $resultado = pow(2,$a);
-         
-        }
-    }
-         
-
- }
-
- echo $resultado."\n";
 ?>

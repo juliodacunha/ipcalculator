@@ -1,4 +1,5 @@
 <?php
+//DEFININDO INPUTS
 error_reporting(0);
 $ip1 = $_POST['ip1'];
 $ip2 = $_POST['ip2'];
@@ -6,7 +7,7 @@ $ip3 = $_POST['ip3'];
 $ip4 = $_POST['ip4'];
 $mascara = $_POST['mascara'];
 
-
+//FUNCTION "Quantidade de sub-redes possíveis"
 function subredes($mascara){
     $a = -1;
     for ($i='/24'; $i <= $mascara ; $i++) { 
@@ -19,31 +20,35 @@ function subredes($mascara){
      }
      return $resultado;
 }
-//teste function
-//echo subredes('/25');
-function host ($mascara){
-    if ($mascara == '/24') {
-        echo '256';
-    }elseif ($mascara =='/25') {
-        echo '128';
-    }elseif ($mascara == '/26') {
-        echo '64';
-    }elseif ($mascara  == '/27') {
-        echo '32';
-    }elseif ($mascara =='/28') {
-        echo '16';
-    }elseif ($mascara == '/29') {
-        echo '8';
-    }elseif ($mascara  == '/30') {
-        echo '4';
-    }elseif ($mascara  == '/31') {
-        echo '2';
-    }elseif ($mascara  == '/32') {
-        echo '1';
-    }
 
+
+//FUNCTION "Quantidade de endereços de hosts em cada sub-rede"
+function host($mascara){
+    $a = 9;
+    for ($i='/24'; $i <= $mascara ; $i++) { 
+         if($a >= 0)  {
+            $a--;
+            if ($mascara >= $i){
+                $resultado = pow(2,$a);             
+            }
+        }          
+     }
+     return $resultado;
 }
 
+//FUNCTION Endereços de rede e Broadcast de uma das cada sub-rede:	
+ function endereco ($mascara){
+    $host = host($mascara);
+    $mascara = mascaraRede ($mascara);
+    $a = 0;
+    for ($i='/24'; $i <= $mascara; $i++) { 
+        if ($a < substr($mascara, 12,14)) {
+            $a = $a + $host;
+        } 
+    }
+ }
+
+//FUNCTION "Primeiro endereço de host de cada sub-rede"
 function priHost ($mascara){
     if ($mascara == '/24') {
         echo '0-255';
@@ -67,7 +72,7 @@ function priHost ($mascara){
 
 }
 
-
+//FUNCTION "Máscara da rede, em formato decimal"
 function mascaraRede($mascara){
     if($mascara=='/24'){
         return "255.255.255.0";
@@ -92,6 +97,7 @@ function mascaraRede($mascara){
     }
 }
 
+//FUNCTION "Classe do IP"
 function classeIp ($ip1){
     if ($ip1<=127){
         return "Classe A";
@@ -108,6 +114,7 @@ function classeIp ($ip1){
     }
 }
 
+//FUNCTION "O IP é publico ou privado:"
 function publicoprivado($ip1, $ip2, $ip3, $ip4){
 
     if ($ip1==10 and $ip2<256 and $ip3<256 and $ip4<256){
@@ -117,12 +124,8 @@ function publicoprivado($ip1, $ip2, $ip3, $ip4){
     }elseif ($ip1==192 and $ip2==168 and $ip3<256 and $ip4<256){
         return "Privado";
     }else{
-        Return "Público";
+        return "Público";
     }
-}
-
-function enrecorede($ip1, $ip2, $ip3, $ip4, $mascara){
-
 }
 
 ?>

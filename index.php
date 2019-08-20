@@ -44,7 +44,7 @@ require ('logica.php');
 
 <h4 class="ui horizontal divider header">
   <i class="bar chart icon"></i>
-  Resultados
+  Resultados 
 </h4>
 <table class="ui definition table" style=" border-radius: 9px; width: 55%; height: 30%; margin-left: 25%;">
   <tbody>
@@ -54,20 +54,16 @@ require ('logica.php');
     </tr>
     <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Endereços de rede e Broadcast de uma das cada sub-rede:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;">fazer função</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"></td>
     </tr>
     <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Quantidade de endereços de hosts em cada sub-rede:</td>
       <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo host($mascara); ?></td>
     </tr>
     <tr>
-      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Primeiro endereço de host de cada sub-rede:</td>
+      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Primeiro e último endereço de host de cada sub-rede:</td>
       <td style="font-family: 'Times New Roman'; font-size: 20px;"> <?php echo priHost($mascara); ?>
 </td>
-    </tr>
-     <tr>
-      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Último endereço de host de cada sub-rede:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo ultimoEndHostSubRede($ip1, $ip2, $ip3, $ip, $mascara); ?></td>
     </tr>
      <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Máscara da rede, em formato decimal:</td>
@@ -82,6 +78,7 @@ require ('logica.php');
       <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo publicoprivado($ip1, $ip2, $ip3, $ip4); ?></td>
     </tr>
   </tbody>
+ 
 </table>
 </body>
 </html>
