@@ -36,17 +36,6 @@ function host($mascara){
      return $resultado;
 }
 
-//FUNCTION Endereços de rede e Broadcast de uma das cada sub-rede:	
- function endereco ($mascara){
-    $host = host($mascara);
-    $mascara = mascaraRede ($mascara);
-    $a = 0;
-    for ($i='/24'; $i <= $mascara; $i++) { 
-        if ($a < substr($mascara, 12,14)) {
-            $a = $a + $host;
-        } 
-    }
- }
 
 //FUNCTION "Primeiro endereço de host de cada sub-rede"
 function priHost ($mascara){
@@ -126,6 +115,40 @@ function publicoprivado($ip1, $ip2, $ip3, $ip4){
     }else{
         return "Público";
     }
+}
+
+
+//FUNCTION Endereços de rede de uma das cada sub-rede:	
+function endereco($mascara){
+    $host1 = host($mascara);
+    $masc = mascaraRede($mascara);
+    $a = 0;
+    echo 'IP: 0';
+    for ($i='/24'; $i <= $mascara; $i++) { 
+        for ($c=0; $c <= substr($masc, 12,14); $c++) {             
+            if ($a <= substr($masc, 12,14)) {
+                $a = $a + $host1;
+                echo $a."<br>";                
+            } 
+        }
+     }
+}
+
+//FUNCTION Endereços de broadcast de uma das cada sub-rede:	
+function broadcast($mascara){
+    $host1 = host($mascara);
+    $masc = mascaraRede($mascara);
+    $a = 0;
+    $lala = 1;
+    for ($i='/24'; $i <= $mascara; $i++) { 
+        for ($c=0; $c <= substr($masc, 12,14); $c++) {             
+            if ($a <= substr($masc, 12,14)) {
+                $a = $a + $host1;
+                $resultado = $a - $lala;
+                echo $resultado."<br>";
+            }    
+        }
+     }
 }
 
 ?>

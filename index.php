@@ -53,8 +53,12 @@ require ('logica.php');
       <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo subredes($mascara); ?></td>
     </tr>
     <tr>
-      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Endereços de rede e Broadcast de uma das cada sub-rede:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;"></td>
+      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Endereços de rede de uma das cada sub-rede:</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo endereco($mascara); ?></td>
+    </tr>
+    <tr>
+      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Endereços de broadcast de uma das cada sub-rede:</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo broadcast($mascara); ?></td>
     </tr>
     <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Quantidade de endereços de hosts em cada sub-rede:</td>
