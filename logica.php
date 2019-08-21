@@ -29,7 +29,7 @@ function host($mascara){
          if($a >= 0)  {
             $a--;
             if ($mascara >= $i){
-                $resultado = pow(2,$a);             
+                $resultado = pow(2,$a);        
             }
         }          
      }
@@ -123,16 +123,27 @@ function endereco($mascara){
     $host1 = host($mascara);
     $masc = mascaraRede($mascara);
     $a = 0;
-    echo 'IP: 0';
+    $ret =  ' 0 ';
     for ($i='/24'; $i <= $mascara; $i++) { 
         for ($c=0; $c <= substr($masc, 12,14); $c++) {             
             if ($a <= substr($masc, 12,14)) {
                 $a = $a + $host1;
-                echo $a."<br>";                
+                $ret = $ret." - ". $a;                
             } 
         }
      }
+     return $ret;
 }
+
+//FUNCTION Endereço de rede em que o IP está localizado:
+function descobre_rede($mascara, $ip4) {
+    $end_rede = endereco($mascara);
+    $tam_rede = host($mascara);
+    $format = explode(' - ', $end_rede);
+    return $format[$ip4/$tam_rede];
+   
+}
+
 
 //FUNCTION Endereços de broadcast de uma das cada sub-rede:	
 function broadcast($mascara){
@@ -145,10 +156,11 @@ function broadcast($mascara){
             if ($a <= substr($masc, 12,14)) {
                 $a = $a + $host1;
                 $resultado = $a - $lala;
-                echo $resultado."<br>";
+                echo $resultado. " - ";
             }    
         }
      }
 }
+
 
 ?>

@@ -17,10 +17,10 @@ require ('logica.php');
  <form class="centro" action="index.php" method="post">
   IP:	
   <div class="ui input" style="width: 28%;">
-  <input type="text" name="ip1" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;" >.
-  <input type="text" name="ip2" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;">.
-  <input type="text" name="ip3" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;">.
-  <input type="text" name="ip4" placeholder="000"  maxlength="3" style="margin: 4px; font-size: 12px;">
+  <input type="text" name="ip1" placeholder="000"  maxlength="3" max="256" style="margin: 4px; font-size: 12px;" >.
+  <input type="text" name="ip2" placeholder="000"  maxlength="3" max="256" style="margin: 4px; font-size: 12px;">.
+  <input type="text" name="ip3" placeholder="000"  maxlength="3" max="256" style="margin: 4px; font-size: 12px;">.
+  <input type="text" name="ip4" placeholder="000"  maxlength="3" max="256" style="margin: 4px; font-size: 12px;">
 </div>
  
   Máscara:
@@ -54,7 +54,7 @@ require ('logica.php');
     </tr>
     <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Endereços de rede de uma das cada sub-rede:</td>
-      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo endereco($mascara); ?></td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo $ip1.".".$ip2.".".$ip3.".".endereco($mascara); ?></td>
     </tr>
     <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20PX;">Endereços de broadcast de uma das cada sub-rede:</td>
@@ -80,6 +80,10 @@ require ('logica.php');
      <tr>
       <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20px;">O IP é:</td>
       <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo publicoprivado($ip1, $ip2, $ip3, $ip4); ?></td>
+    </tr>
+    <tr>
+      <td style="font-family: 'CustomFont'; font-weight:normal; font-style:normal; font-size: 20px;">O Endereço de rede em que o IP está localizado:</td>
+      <td style="font-family: 'Times New Roman'; font-size: 20px;"><?php echo $ip1.".".$ip2.".".$ip3.".".descobre_rede($mascara, $ip4); ?></td>
     </tr>
   </tbody>
  
