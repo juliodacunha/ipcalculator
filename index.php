@@ -9,12 +9,19 @@ require ('logica.php');
 <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="semantic/semantic.min.js"></script><link rel="stylesheet" type="text/css" href="style.css">
+<script language='javascript'>
+    <?php if ($error) { ?>
+    window.onload = function() {
+        alert('<?php echo $error?>');
+    }
+    <?php } ?>
+</script>
     <title>Calculadora IP</title>
 </head>
 <body>
 <article class="fonte">
 	<h3>calculadora de IP</h3>
- <form class="centro" action="index.php" method="post">
+<form class="centro" action="index.php" method="post">
   IP:	
   <div class="ui input" style="width: 28%;">
   <input type="text" name="ip1" placeholder="000"  maxlength="3" max="256" style="margin: 4px; font-size: 12px;" >.
@@ -38,14 +45,28 @@ require ('logica.php');
   </select>
 </div><br>
   <button class="ui yellow button" type="submit" style="margin-top: 8px;">Calcular</button>
-</form> 
+</form>
 </article>
 
 
 <h4 class="ui horizontal divider header">
   <i class="bar chart icon"></i>
-  Resultados 
+  Resultados do IP
 </h4>
+
+
+<?php
+if (filter_var($ip_completo, FILTER_VALIDATE_IP)) {
+    echo '<div class="mx-auto"> <p style=" text-align: center;"class="text-center"> Você digitou: '.$ip_completo.$mascara.'</p></p></div>';
+} else {
+    echo '<div class="mx-auto"> <p style=" text-align: center;"class="text-center">O RESULTADO EXIBIDO PARA O IP '.$ip_completo.$mascara.' É INVÁLIDO!</p></p></div>';
+    echo "<head><script>alert('O nome de usuario que você \n Digitou já existe tente outro!');</script></head>";
+
+}
+?>
+
+
+
 <table class="ui definition table" style=" border-radius: 9px; width: 55%; height: 30%; margin-left: 25%;">
   <tbody>
     <tr>
